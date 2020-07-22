@@ -1,0 +1,33 @@
+create database db_aluno;
+use db_aluno;
+
+create table alunos (
+    id int (5) AUTO_INCREMENT primary key not null,
+    nome varchar(60),
+    sobrenome varchar(60),
+    matricula float(5.2),
+    nota decimal(2.1),
+    sala bigint
+);
+
+insert into db_aluno.alunos (nome, sobrenome, matricula, nota, sala) values ("Teresa", "cristina", 111111, 2.0, 2)
+insert into db_aluno.alunos (nome, sobrenome, matricula, nota, sala) values ("Gustavo", "Albuquerque", 563241, 5.0, 3)
+insert into db_aluno.alunos (nome, sobrenome, matricula, nota, sala) values ("Jaquim", "Sena", 789452, 8.0, 2)
+insert into db_aluno.alunos (nome, sobrenome, matricula, nota, sala) values ("Jessica", "Muniz", 745126, 10.0, 1)
+insert into db_aluno.alunos (nome, sobrenome, matricula, nota, sala) values ("Débora", "Ferreira", 145236, 9.0, 1)
+insert into db_aluno.alunos (nome, sobrenome, matricula, nota, sala) values ("Joana", "Muller", 452162, 7.0,3)
+insert into db_aluno.alunos (nome, sobrenome, matricula, nota, sala) values ("Artur", "Lima", 896325, 6.0,1)
+insert into db_aluno.alunos (nome, sobrenome, matricula, nota, sala) values ("Gabriela", "Juvecio", 754621, 4.0,3)
+insert into db_aluno.alunos (nome, sobrenome, matricula, nota, sala) values ("Agostinho", "Carrara", 875462, 8.0,3)
+insert into db_aluno.alunos (nome, sobrenome, matricula, nota, sala) values ("Giovanni", "Jsefino", 745216, 7.0,2)
+insert into db_aluno.alunos (nome, sobrenome, matricula, nota, sala) values ("Josh", "Nolan", 456127, 6.0,1)
+insert into db_aluno.alunos (nome, sobrenome, matricula, nota, sala) values ("Jailson", "Barros", 789451, 8.0,3)
+insert into db_aluno.alunos (nome, sobrenome, matricula, nota, sala) values ("Nina", "Cleanne", 456214, 4.0,2)
+insert into db_aluno.alunos (nome, sobrenome, matricula, nota, sala) values ("Bruna", "Geová", 978546, 1.0,1)
+insert into db_aluno.alunos (nome, sobrenome, matricula, nota, sala) values ("Passira", "Noavan", 784569, 5.0,2)
+
+SELECT * FROM db_aluno.alunos;
+SELECT * FROM db_aluno.alunos where nota > 7;
+SELECT * FROM db_aluno.alunos where nota > 7;
+
+update db_aluno.alunos set nota = 1 where id = 4;

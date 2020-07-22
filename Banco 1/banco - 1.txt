@@ -1,0 +1,31 @@
+create database db_rh;
+use db_rh;
+CREATE TABLE db_funcionarios(
+    id bigint(3) AUTO_INCREMENT,
+    nome varchar(20) NOT NULL,
+    idade bigint,
+    Salario decimao (6,2),
+    PRIMARY KEY (id) 
+);
+
+insert into db_funcionarios (nome, idade , salario) values ("Teresa cristina", 43, 8000.00)
+insert into db_funcionarios (nome, idade , salario) values ("Gustavo Albuquerque", 50, 1400.00)
+insert into db_funcionarios (nome, idade , salario) values ("Joaquim Sena", 50, 1400.00)
+insert into db_funcionarios (nome, idade , salario) values ("Jessica Muniz", 24, 5000.00)
+insert into db_funcionarios (nome, idade , salario) values ("Débora Ferreira", 26,1000.00)
+insert into db_funcionarios (nome, idade , salario) values ("Joana Müller", 28,4000.00)
+insert into db_funcionarios (nome, idade , salario) values ("Artur Lima", 20,2500.00)
+insert into db_funcionarios (nome, idade , salario) values ("Gabriela Juvencio", 24,4000.00)
+insert into db_funcionarios (nome, idade , salario) values ("Agostinho Carrara", 36, 1700.00)
+insert into db_funcionarios (nome, idade , salario) values ("Giovanni Josefino", 38, 6000.00)
+insert into db_funcionarios (nome, idade , salario) values ("Josh Nolan", 29, 4000.00)
+insert into db_funcionarios (nome, idade , salario) values ("Nina Cleanne ", 22, 2000.00)
+insert into db_funcionarios (nome, idade , salario) values ("Jailson Barros", 29, 1300.00)
+insert into db_funcionarios (nome, idade , salario) values ("Bruna Geová", 21, 1000.00)
+insert into db_funcionarios (nome, idade , salario) values ("Passira Noavan", 32, 1100.00)
+
+select * FROM db_rh.db_funcionarios;
+select * from db_rh.db_funcionarios where Salario > 2000;
+select * from db_rh.db_funcionarios where Salario < 2000;
+select salario FROM db_rh.db_funcionarios;
+
