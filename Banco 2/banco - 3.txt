@@ -1,0 +1,56 @@
+create database db_ecommerce
+use db_ecommerce;
+create table tb_produto(
+    id bigint(3) AUTO_INCREMENT,
+    categoria varchar(20) NOT NULL,
+    cor varchar(20) NOT NULL,
+    anofabricacao bigint,
+    primary key (id)
+);
+
+use db_ecommerce;
+insert into tb_produto (categoria, cor, anofabricacao) values ("Smart phone", "branco", 2020)
+insert into tb_produto (categoria, cor, anofabricacao) values ("Geladeira", "branco", 2018)
+insert into tb_produto (categoria, cor, anofabricacao) values ("Televisão", "preta", 2019)
+insert into tb_produto (categoria, cor, anofabricacao) values ("Computador", "preto", 2020)
+insert into tb_produto (categoria, cor, anofabricacao) values ("Ventilador", "branco", 2020)
+
+use db_ecommerce;
+create table tb_mercadoria(
+    id bigint(5) AUTO_INCREMENT,
+    Nome varchar(20) NOT NULL,
+    versão bigint,
+    tamanho varchar(20) NOT NULL,
+    código bigint,
+    produto bigint NOT NULL,
+    PRIMARY KEY (id),
+    foreign key (produto) references tb_produto(id)
+);
+
+use db_ecommerce;
+insert into tb_mercadoria (Nome, versão, tamanho, código, produto) values ("iphone", 8, "normal", 2164, 1) 
+insert into tb_mercadoria (Nome, versão, tamanho, código, produto) values ("Xiaomi", 2, "normal", 4512, 1) 
+insert into tb_mercadoria (Nome, versão, tamanho, código, produto) values ("Samsung", 3, "normal",4512, 1) 
+insert into tb_mercadoria (Nome, versão, tamanho, código, produto) values ("Eletrolux Duplex", 25, "grande", 6352, 2) 
+insert into tb_mercadoria (Nome, versão, tamanho, código, produto) values ("Consul Frost", 75, "grande", 7456, 2)  
+insert into tb_mercadoria (Nome, versão, tamanho, código, produto) values ("Brastemp Frost", 12, "grande", 7452, 2) 
+insert into tb_mercadoria (Nome, versão, tamanho, código, produto) values ("Philco PTV", 22, "Grande", 3578, 3) 
+insert into tb_mercadoria (Nome, versão, tamanho, código, produto) values ("Smart",13 , "média", 4125, 3)  
+insert into tb_mercadoria (Nome, versão, tamanho, código, produto) values ("Sany", 3, "Pequena", 7418, 3)
+insert into tb_mercadoria (Nome, versão, tamanho, código, produto) values ("Mcbook", 11, "normal", 7451, 4)
+insert into tb_mercadoria (Nome, versão, tamanho, código, produto) values ("Samsung", 5, "normal", 0325, 4)
+insert into tb_mercadoria (Nome, versão, tamanho, código, produto) values ("Asus", 5, "normal",7056, 4)
+insert into tb_mercadoria (Nome, versão, tamanho, código, produto) values ("Mondial", 70, "normal", 3654, 5)
+insert into tb_mercadoria (Nome, versão, tamanho, código, produto) values ("Arno", 20, "normal", 3659, 5)
+insert into tb_mercadoria (Nome, versão, tamanho, código, produto) values ("Britânia", 10, "normal", 3468, 5)
+
+
+
+use db_ecommerce;
+SELECT nome FROM tb_mercadoria WHERE nome LIKE "C%";
+
+use db_ecommerce;
+SELECT * FROM tb_produto INNER JOIN tb_mercadoria ON tb_produto.id = tb_mercadoria.produto;
+
+use db_ecommerce;
+SELECT * FROM tb_mercadoria WHERE produto LIKE "%4%";

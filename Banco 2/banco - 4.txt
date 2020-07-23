@@ -1,0 +1,62 @@
+create database db_rh2;
+use db_rh2;
+create table tb_cargo(
+    id bigint(3) AUTO_INCREMENT,
+    nome varchar(20) NOT NULL,
+    setor varchar(20) NOT NULL,
+    andar bigint,
+    primary key (id)
+);
+
+use db_rh2;
+insert into tb_cargo (nome, setor, andar) values ("Diretor", "Direção", 6)
+insert into tb_cargo (nome, setor, andar) values ("Gerente", "Gerencia",3)
+insert into tb_cargo (nome, setor, andar) values ("Supervisor", "Gerencia",3)
+insert into tb_cargo (nome, setor, andar) values ("Administrador", "administrativo",2)
+insert into tb_cargo (nome, setor, andar) values ("Secretária(o)", "administrativo",2)
+
+
+use db_rh2;
+create table tb_funcionario(
+    id bigint(5) AUTO_INCREMENT,
+    Nome varchar(20) NOT NULL,
+    Idade bigint,
+    Salario decimal (6,2),
+    Matricula bigint,
+    cargo varchar(20) NOT NULL,
+    PRIMARY KEY (id),
+    foreign key (cargo_id) references db_cargos (id)
+);
+
+use db_rh2;
+insert into tb_funcionario (Nome, idade, salario, matricula, cargo_id)values ("Paola Bracho", 34, 8000, 789, 1)
+insert into tb_funcionario (Nome, idade, salario, matricula, cargo_id)values ("José Rodrigues", 54, 4000, 986,2)
+insert into tb_funcionario (Nome, idade, salario, matricula, cargo_id)values ("Joaquina Jozefa", 23, 3500, 635,3)
+insert into tb_funcionario (Nome, idade, salario, matricula, cargo_id)values ("Arivoleide Rocha", 42, 3500, 987,3)
+insert into tb_funcionario (Nome, idade, salario, matricula, cargo_id)values ("Rosileide Augusta", 35, 3500,745,3)
+insert into tb_funcionario (Nome, idade, salario, matricula, cargo_id)values ("Iazabella Jonas", 28, 2000,635,2)
+insert into tb_funcionario (Nome, idade, salario, matricula, cargo_id)values ("Wellington Alves", 32, 2000,452,4)
+insert into tb_funcionario (Nome, idade, salario, matricula, cargo_id)values ("João Roberto", 28, 2000,342,4)
+insert into tb_funcionario (Nome, idade, salario, matricula, cargo_id)values ("Erik Abreu", 32, 2000,345,4)
+insert into tb_funcionario (Nome, idade, salario, matricula, cargo_id)values ("Ivo Lino", 21, 1200, 042,5)
+insert into tb_funcionario (Nome, idade, salario, matricula, cargo_id)values ("Davina Jossi", 26, 2000,365,4)
+insert into tb_funcionario (Nome, idade, salario, matricula, cargo_id)values ("Jakleny Demon", 43, 1200,965,5)
+insert into tb_funcionario (Nome, idade, salario, matricula, cargo_id)values ("Diego Tots", 23, 1200,045,5)
+insert into tb_funcionario (Nome, idade, salario, matricula, cargo_id)values ("Cora Coralina", 23, 1200,586,5)
+insert into tb_funcionario (Nome, idade, salario, matricula, cargo_id)values ("Perônio Passas", 34, 1200, 654, 5)
+
+use db_rh2;
+SELECT nome, Salario >2000 FROM tb_funcionario;
+
+use db_rh2;
+SELECT nome, salario FROM tb_funcionario
+WHERE salario between 1000 and 2000;
+
+use db_rh2;
+SELECT nome FROM tb_funcionario WHERE nome LIKE "C%";
+
+use db_rh2;
+SELECT * FROM tb_funcionario INNER JOIN tb_cargo ON tb_cargo.id = tb_funcionario.cargo_id;
+
+use db_rh2;
+SELECT * FROM tb_funcionario WHERE cargo_id LIKE "%5%";
