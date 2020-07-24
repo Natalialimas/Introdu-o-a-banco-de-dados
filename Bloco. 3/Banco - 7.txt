@@ -1,0 +1,62 @@
+create database db_farmacia_do_bem
+
+use db_farmacia_do_bem;
+create table tb_categoria(
+id bigint(3) AUTO_INCREMENT,
+Produto varchar(20) NOT NULL,
+Código bigint,
+primary key (id));
+
+use db_farmacia_do_bem;
+insert into tb_categoria (Produto, Código) values ("Cosmético", 32)
+insert into tb_categoria (Produto, Código) values ("Medicamentos", 45)
+insert into tb_categoria (Produto, Código) values ("Higiene", 97)
+insert into tb_categoria (Produto, Código) values ("Alimentos", 012)
+insert into tb_categoria (Produto, Código) values ("Outros",645)
+
+use db_farmacia_do_bem;
+ create table tb_produto (
+  id bigint AUTO_INCREMENT,
+  Nome varchar(20) NOT NULL,
+  Preço decimal (2,2),
+  Quantidade bigint,
+  Código bigint,
+  Tipoproduto bigint,
+  primary key (id),
+  foreign key (Tipoproduto) references tb_categoria(id));
+
+use db_farmacia_do_bem;
+insert into tb_produto (Nome, Preço, Quantidade, Código, Tipoproduto) values ("Clareador olhos", 90.63, 1, 9310, 1)
+insert into tb_produto (Nome, Preço, Quantidade, Código, Tipoproduto) values ("Souvenaid", 61.24, 1, 39101, 4)
+insert into tb_produto (Nome, Preço, Quantidade, Código, Tipoproduto) values ("Nutridrink", 87.99, 1, 452, 4)
+insert into tb_produto (Nome, Preço, Quantidade, Código, Tipoproduto) values ("Close up fresh", 3.60, 2, 463214, 3)
+insert into tb_produto (Nome, Preço, Quantidade, Código, Tipoproduto) values ("Fortini multi", 6.90, 4, 4625, 4)
+insert into tb_produto (Nome, Preço, Quantidade, Código, Tipoproduto) values ("Estomazil", 2.64, 4, 4125, 2)
+insert into tb_produto (Nome, Preço, Quantidade, Código, Tipoproduto) values ("Stodal", 53.64, 1, 701, 2)
+insert into tb_produto (Nome, Preço, Quantidade, Código, Tipoproduto) values ("Life vac", 89.90, 1, 4561, 5)
+
+use db_farmacia_do_bem;
+Select * from tb_produto where preço > 50
+
+use db_farmacia_do_bem;
+Select * from tb_produto where preço between 3 and 60
+
+use db_farmacia_do_bem;
+SELECT nome FROM tb_produto WHERE nome LIKE "B%";
+
+use db_pizzaria_legal;
+SELECT * FROM tb_produto INNER JOIN tb_categoria ON tb_produto.tipoproduto = tb_categoria.id
+
+
+use db_farmacia_do_bem;
+SELECT * FROM tb_produto INNER JOIN tb_categoria ON tb_produto.tipoproduto = tb_categoria.id where tipoproduto in (2)
+
+
+
+
+
+
+
+
+
+

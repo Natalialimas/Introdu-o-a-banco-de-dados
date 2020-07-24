@@ -1,0 +1,56 @@
+create database db_generation_game_online
+use db_generation_game_online;
+
+use db_generation_game_online;
+create table tb_classe(
+    id bigint(3) AUTO_INCREMENT,
+    Classe varchar(20) NOT NULL,
+    Especialidade varchar(20) NOT NULL,
+    Ataque bigint,
+    primary key (id)
+);
+
+use db_generation_game_online;
+insert into tb_classe (Classe, Especialidade, Ataque) values ("Guerreiro", "Corpo a corpo", 1800)
+insert into tb_classe (Classe, Especialidade, Ataque) values ("Mago", "Ataque magico", 1600)
+insert into tb_classe (Classe, Especialidade, Ataque) values ("Mercenário", "Danos críticos", 2300)
+insert into tb_classe (Classe, Especialidade, Ataque) values ("Clérigo", "Curar", 1200)
+insert into tb_classe (Classe, Especialidade, Ataque) values ("Arqueiro", "Ataques a Distância", 3000)
+
+use db_generation_game_online;
+create table tb_personagem(
+    id bigint(5) AUTO_INCREMENT,
+    Nome varchar(20) NOT NULL,
+    Nível bigint,
+    Vitórias bigint,
+    Derrotas bigint,
+    Classe_id bigint NOT NULL,
+    PRIMARY KEY (id),
+    foreign key (Classe_id) references tb_classe(id)
+);
+
+use db_generation_game_online;
+Insert into tb_personagem (Nome, Nível, Vitórias, Derrotas, Classe_id) values ("Jess Custer", 57, 3, 4, 4)
+Insert into tb_personagem (Nome, Nível, Vitórias, Derrotas, Classe_id) values ("Bullseye", 68, 12, 2, 3)
+Insert into tb_personagem (Nome, Nível, Vitórias, Derrotas, Classe_id) values ("Legolas", 71, 9, 2, 5)
+Insert into tb_personagem (Nome, Nível, Vitórias, Derrotas, Classe_id) values ("Arya Stark", 68, 8, 3, 3)
+Insert into tb_personagem (Nome, Nível, Vitórias, Derrotas, Classe_id) values ("Arcanis", 70, 15, 6, 2)
+Insert into tb_personagem (Nome, Nível, Vitórias, Derrotas, Classe_id) values ("Ragnar", 80, 3, 1, 1)
+Insert into tb_personagem (Nome, Nível, Vitórias, Derrotas, Classe_id) values ("Jaret", 78, 9,9, 1)
+Insert into tb_personagem (Nome, Nível, Vitórias, Derrotas, Classe_id) values ("Presto", 52, 5,3, 2)
+
+
+use db_generation_game_online;
+Select * from tb_personagem where Classe_id in (5,3)
+
+use db_generation_game_online;
+Select * from tb_personagem where Classe_id in (1,2)
+
+use db_generation_game_online;
+SELECT nome FROM tb_personagem WHERE nome LIKE "C%";
+
+use db_generation_game_online;
+SELECT * FROM tb_personagem INNER JOIN tb_classe ON tb_personagem.Classe_id = tb_classe.id
+
+use db_generation_game_online;
+SELECT * FROM tb_personagem INNER JOIN tb_classe ON tb_personagem.Classe_id = tb_classe.id where Classe_id in (5)

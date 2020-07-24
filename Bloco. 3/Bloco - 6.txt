@@ -1,0 +1,56 @@
+create database db_pizzaria_legal
+use db_pizzaria_legal;
+create table tb_massas(
+id bigint(3) AUTO_INCREMENT,
+Tipo varchar(20) NOT NULL,
+Código bigint,
+primary key (id));
+
+use db_pizzaria_legal;
+insert into tb_massas (Tipo, código) values ("Vegana", 12)
+insert into tb_massas (Tipo, código) values ("Meio a Meio", 35)
+insert into tb_massas (Tipo, código) values ("Salgada", 52)
+insert into tb_massas (Tipo, código) values ("Doce", 30)
+insert into tb_massas (Tipo, código) values ("Vegetariana", 42)
+
+use db_pizzaria_legal;
+create table tb_pedido(
+    id bigint(5) AUTO_INCREMENT,
+    Sabor varchar(20) NOT NULL,
+    Preço decimal (2,2),
+    Tamanho varchar(20) NOT NULL,
+    Borda boolean,
+    Tipomassa bigint NOT NULL,
+    PRIMARY KEY (id),
+    foreign key ( Tipomassa) references tb_massas(id)
+);
+
+use db_pizzaria_legal;
+insert into tb_pedido (Sabor, Preço, Tamanho, Borda, Tipomassa) values ("Marguerita", 9.80 , "Pequena", TRUE, 5)
+insert into tb_pedido (Sabor, Preço, Tamanho, Borda, Tipomassa) values ("Brigadeiro",15.00 , "Pequena", TRUE, 4)
+insert into tb_pedido (Sabor, Preço, Tamanho, Borda, Tipomassa) values ("Shitaki", 20 , "grande", TRUE,5)
+insert into tb_pedido (Sabor, Preço, Tamanho, Borda, Tipomassa) values ("Calabresa",30.00 , "grande", TRUE,3)
+insert into tb_pedido (Sabor, Preço, Tamanho, Borda, Tipomassa) values ("Mussarela",30.00 , "grande", TRUE,3)
+insert into tb_pedido (Sabor, Preço, Tamanho, Borda, Tipomassa) values ("Meia frango/meia mussarela", 60.00 , "grande", TRUE,2)
+insert into tb_pedido (Sabor, Preço, Tamanho, Borda, Tipomassa) values ("Meia peperone/meia mussarela", 45.00 , "grande", TRUE,2)
+insert into tb_pedido (Sabor, Preço, Tamanho, Borda, Tipomassa) values ("Carne de jaca", 53.00 , "grande", TRUE,1)
+
+use db_pizzaria_legal;
+Select * from tb_pedido where preço >45
+
+use db_pizzaria_legal;
+Select * from tb_pedido where preço between 29 and 60
+
+use db_pizzaria_legal;
+SELECT sabor FROM tb_pedido WHERE sabor LIKE "C%";
+
+use db_pizzaria_legal;
+SELECT * FROM tb_pedido INNER JOIN tb_massas ON tb_pedido.tipomassa = tb_massas.id
+
+use db_pizzaria_legal;
+SELECT * FROM tb_pedido INNER JOIN tb_massas ON tb_pedido.tipomassa = tb_massas.id where tipomassa in (2)
+
+
+
+
+
